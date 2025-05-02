@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 07</title>
+</head>
+<body>
+  <h1>Exibir Todos os IDs (getAttributeNode, nodeValue): </h1>
+  <div id="ids"></div>
+
+  <script>
+    fetch('livros.xml')
+      .then(res => res.text())
+      .then(str => {
+        const xml = new DOMParser().parseFromString(str, 'text/xml');
+        const livros = xml.getElementsByTagName('livro');
+        const div = document.getElementById('ids');
+
+        for (let livro of livros) {
+          const idAttr = livro.getAttributeNode('id');
+          const p = document.createElement('p');
+          p.textContent = `ID: ${idAttr.nodeValue}`;
+          div.appendChild(p);
+        }
+      });
+  </script>
+</body>
+</html>

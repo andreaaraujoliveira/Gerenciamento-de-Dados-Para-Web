@@ -1,0 +1,87 @@
+As respostas deverão ser enviadas no GitHub do aluno, ex: 
+https://github.com/fulano_de_ta_/gdweb/exercicio02/ 
+O envio na plataforma será apenas o link do GitHub. 
+Lista de Exercícios: Acessando e Manipulando XML com HTML e JavaScript (DOM) 
+Arquivo XML de Exemplo (crie um arquivo chamado livros.xml): XML 
+Unset 
+<livraria> 
+<livro id="1"> 
+<titulo>O Pequeno Príncipe</titulo> 
+<autor>Antoine de Saint-Exupéry</autor> 
+<ano>1943</ano> 
+</livro> 
+<livro id="2"> 
+<titulo>Dom Quixote</titulo> 
+<autor>Miguel de Cervantes</autor> 
+<ano>1605</ano> 
+</livro> 
+<livro id="3"> 
+<titulo>1984</titulo> 
+<autor>George Orwell</autor> 
+<ano>1949</ano> 
+</livro> 
+</livraria> 
+Exercícios: 
+1. Exibir Títulos: 
+● Crie uma página HTML com um elemento <div id="titulos"></div>. ● Utilize JavaScript para: 
+○ Carregar o arquivo livros.xml usando fetch ou XMLHttpRequest. ○ Parsear o XML para um objeto DOM usando DOMParser. 
+○ Acessar todos os elementos <titulo> utilizando 
+getElementsByTagName().
+○ Iterar sobre os elementos encontrados e exibir o texto de cada título dentro da div#titulos (crie elementos <p> para cada título). 
+2. Exibir Autores e Anos: 
+● Crie uma página HTML com um elemento <div id="autores_anos"></div>. ● Utilize JavaScript para: 
+○ Carregar e parsear o arquivo livros.xml. 
+○ Acessar todos os elementos <livro> utilizando 
+getElementsByTagName(). 
+○ Para cada elemento <livro>: 
+■ Acesse o elemento <autor> utilizando childNodes e nodeName (ou getElementsByTagName()). 
+■ Acesse o elemento <ano> utilizando childNodes e nodeName (ou getElementsByTagName()). 
+■ Exiba o autor e o ano de cada livro dentro da div#autores_anos (formate a saída como "Autor: [nome do autor], Ano: [ano]"). 
+3. Exibir Informações de um Livro Específico (getAttribute): 
+● Crie uma página HTML com um elemento <div 
+id="livro_especifico"></div>. 
+● Utilize JavaScript para: 
+○ Carregar e parsear o arquivo livros.xml. 
+○ Acesse o primeiro elemento <livro> utilizando 
+getElementsByTagName('livro')[0]. 
+○ Utilize o método getAttribute() para obter o valor do atributo id deste livro. 
+○ Acesse o elemento <titulo>, <autor> e <ano> deste mesmo livro. ○ Exiba o ID, título, autor e ano do livro dentro da div#livro_especifico. 
+4. Exibir o Primeiro Autor (firstChild, nodeValue): 
+● Crie uma página HTML com um elemento <div id="primeiro_autor"></div>. ● Utilize JavaScript para: 
+○ Carregar e parsear o arquivo livros.xml. 
+○ Acesse o primeiro elemento <livro> utilizando 
+getElementsByTagName('livro')[0]. 
+○ Acesse o primeiro filho deste elemento <livro> (que deve ser o elemento <titulo>) utilizando firstChild. 
+○ Acesse o próximo irmão deste elemento (que deve ser o elemento <autor>) utilizando nextSibling. 
+○ Acesse o primeiro filho deste elemento <autor> (que é o nó de texto com o nome do autor) utilizando firstChild.
+○ Obtenha o valor textual deste nó utilizando nodeValue. 
+○ Exiba o nome do primeiro autor na div#primeiro_autor. 
+5. ibir o Último Ano (lastChild, previousSibling, nodeValue): Ex
+● Crie uma página HTML com um elemento <div id="ultimo_ano"></div>. ● Utilize JavaScript para: 
+○ Carregar e parsear o arquivo livros.xml. 
+○ Acesse o último elemento <livro> utilizando 
+getElementsByTagName('livro')[document.getElementsByTagNa me('livro').length - 1]. 
+○ Acesse o último filho deste elemento <livro> (que deve ser o elemento <ano>) utilizando lastChild. 
+○ Acesse o primeiro filho deste elemento <ano> (que é o nó de texto com o ano) utilizando firstChild. 
+○ Obtenha o valor textual deste nó utilizando nodeValue. 
+○ Exiba o ano do último livro na div#ultimo_ano. 
+6. Navegar pelos Nós (parentNode): 
+● Crie uma página HTML com um elemento <div id="navegacao"></div>. ● Utilize JavaScript para: 
+○ Carregar e parsear o arquivo livros.xml. 
+○ Acesse o elemento <autor> do segundo livro. 
+○ Utilize parentNode para acessar o elemento <livro> pai. 
+○ Utilize firstChild do elemento <livro> para acessar o elemento <titulo>. 
+○ Exiba o título do segundo livro na div#navegacao. 
+7. Exibir Todos os IDs (getAttributeNode, nodeValue): 
+● Crie uma página HTML com um elemento <div id="ids"></div>. ● Utilize JavaScript para: 
+○ Carregar e parsear o arquivo livros.xml. 
+○ Acesse todos os elementos <livro> utilizando 
+getElementsByTagName('livro'). 
+○ Para cada elemento <livro>: 
+■ Utilize o método getAttributeNode('id') para obter o nó do atributo id. 
+■ Acesse o valor do atributo utilizando a propriedade nodeValue do nó do atributo. 
+■ Exiba o ID de cada livro na div#ids.
+Observações: 
+● Lembre-se de que ao acessar elementos utilizando childNodes, você estará lidando com todos os tipos de nós (elementos, texto, comentários, etc.). Utilize nodeName e nodeType para identificar os nós de elemento e texto desejados. 
+● Para simplificar, em alguns exercícios, o uso de getElementsByTagName() diretamente nos elementos <livro> pode ser mais direto do que navegar pelos childNodes. O objetivo é praticar diferentes métodos de acesso do DOM. 
+● Certifique-se de que o arquivo livros.xml esteja no mesmo diretório que seus arquivos HTML, ou ajuste o caminho ao carregar o arquivo.
