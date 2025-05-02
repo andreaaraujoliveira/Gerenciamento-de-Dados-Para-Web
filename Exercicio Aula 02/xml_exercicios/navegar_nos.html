@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Navegação de Nós</title></head>
+<body>
+<div id="navegacao"></div>
+<script>
+fetch('livros.xml')
+  .then(res => res.text())
+  .then(str => new DOMParser().parseFromString(str, "text/xml"))
+  .then(xml => {
+    const autor = xml.getElementsByTagName("livro")[1].getElementsByTagName("autor")[0];
+    const livroPai = autor.parentNode;
+    let filho = livroPai.firstChild;
+    while (filho && filho.nodeName !== "titulo") {
+      filho = filho.nextSibling;
+    }
+    document.getElementById("navegacao").textContent = filho.textContent;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 06</title>
+</head>
+<body>
+  <h1>Navegar pelos Nós (parentNode)</h1>
+  <div id="navegacao"></div>
+
+  <script>
+    fetch('livros.xml')
+      .then(res => res.text())
+      .then(str => {
+        const xml = new DOMParser().parseFromString(str, 'text/xml');
+        const autor = xml.getElementsByTagName('livro')[1].getElementsByTagName('autor')[0];
+        const livro = autor.parentNode;
+
+        let tituloNode = livro.firstChild;
+        while (tituloNode && tituloNode.nodeType !== 1) tituloNode = tituloNode.nextSibling;
+
+        document.getElementById('navegacao').textContent = tituloNode.textContent;
+      });
+  </script>
+</body>
+</html>

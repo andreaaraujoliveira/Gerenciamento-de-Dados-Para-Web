@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 05 - Adicionando Atributo</title>
+</head>
+<body>
+  <h1>5 - Adicionando um Novo Atributo a um Elemento</h1>
+
+  <p>Considere o seguinte XML:</p>
+  <pre>
+&lt;catalogo&gt; 
+  &lt;produto id="A45"&gt; 
+    &lt;nome&gt;Caneta Azul&lt;/nome&gt; 
+    &lt;preco&gt;2.50&lt;/preco&gt; 
+    &lt;estoque&gt;150&lt;/estoque&gt; 
+  &lt;/produto&gt; 
+&lt;/catalogo&gt;
+  </pre>
+
+  <p>Escreva um script JavaScript que:</p>
+  <ul>
+    <li>Parseie a string XML.</li>
+    <li>Encontre o elemento <code>&lt;produto id="A45"&gt;</code>.</li>
+    <li>Adicione um novo atributo chamado <code>moeda</code> com o valor <code>BRL</code>.</li>
+    <li>Exiba no console o valor do novo atributo usando <code>getAttribute('moeda')</code>.</li>
+  </ul>
+
+  <h3>Resultado no Console:</h3>
+  <p>Abra o console (F12 → aba Console) para verificar o valor do novo atributo.</p>
+<p>"Atributo 'moeda' adicionado: BRL"</p>
+  <script>
+    const xmlString = `
+      <catalogo> 
+        <produto id="A45"> 
+          <nome>Caneta Azul</nome> 
+          <preco>2.50</preco> 
+          <estoque>150</estoque> 
+        </produto> 
+      </catalogo>
+    `;
+
+    // Parsear o XML
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+    // Encontrar o elemento <produto id="A45">
+    const produto = xmlDoc.querySelector('produto[id="A45"]');
+
+    // Adicionar o atributo moeda="BRL"
+    produto.setAttribute("moeda", "BRL");
+
+    // Exibir no console o novo atributo
+    console.log("Atributo 'moeda' adicionado:", produto.getAttribute("moeda"));
+  </script>
+</body>
+</html>

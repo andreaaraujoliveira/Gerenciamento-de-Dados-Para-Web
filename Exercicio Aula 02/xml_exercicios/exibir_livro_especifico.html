@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Livro Específico</title></head>
+<body>
+<div id="livro_especifico"></div>
+<script>
+fetch('livros.xml')
+  .then(res => res.text())
+  .then(str => new DOMParser().parseFromString(str, "text/xml"))
+  .then(xml => {
+    const livro = xml.getElementsByTagName("livro")[0];
+    const id = livro.getAttribute("id");
+    const titulo = livro.getElementsByTagName("titulo")[0].textContent;
+    const autor = livro.getElementsByTagName("autor")[0].textContent;
+    const ano = livro.getElementsByTagName("ano")[0].textContent;
+    document.getElementById("livro_especifico").innerHTML = 
+      `ID: ${id}<br>Título: ${titulo}<br>Autor: ${autor}<br>Ano: ${ano}`;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Primeiro Autor</title></head>
+<body>
+<div id="primeiro_autor"></div>
+<script>
+fetch('livros.xml')
+  .then(res => res.text())
+  .then(str => new DOMParser().parseFromString(str, "text/xml"))
+  .then(xml => {
+    const primeiroLivro = xml.getElementsByTagName("livro")[0];
+    let filho = primeiroLivro.firstChild;
+    while (filho && filho.nodeName !== "autor") {
+      filho = filho.nextSibling;
+    }
+    const nomeAutor = filho.firstChild.nodeValue;
+    document.getElementById("primeiro_autor").textContent = nomeAutor;
+  });
+</script>
+</body>
+</html>

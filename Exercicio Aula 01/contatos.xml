@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contatos>
+  <pessoa>
+    <nome>José Silva</nome>
+    <email>josesilva@gmail.com</email>
+    <dataNascimento>2000-12-10</dataNascimento>
+    <telefones>
+      <telefone>98123-4321</telefone>
+      <telefone>3223-3434</telefone>
+    </telefones>
+  </pessoa>
+  <pessoa>
+    <nome>Mônica Aparecida</nome>
+    <email>moaparecida@hotmail.com</email>
+    <dataNascimento>1998-04-03</dataNascimento>
+    <telefones>
+      <telefone>3225-5123</telefone>
+      <telefone>9999-2222</telefone>
+      <telefone>9834-9451</telefone>
+    </telefones>
+  </pessoa>
+  <pessoa>
+    <nome>Joaquim Gomes</nome>
+    <email>jgomes@yahoo.com.br</email>
+    <dataNascimento>1980-08-25</dataNascimento>
+    <telefones>
+      <telefone>3323-2242</telefone>
+      <telefone>98413-3242</telefone>
+    </telefones>
+  </pessoa>
+  <pessoa>
+    <nome>Ana Soares</nome>
+    <email>anasoares@outlook.com</email>
+    <dataNascimento>1990-02-29</dataNascimento>
+    <telefones>
+      <telefone>3234-2345</telefone>
+      <telefone>99841-9896</telefone>
+    </telefones>
+  </pessoa>
+  <pessoa>
+    <nome>Paulo Gustavo</nome>
+    <email>paulogustavo@gmail.com</email>
+    <dataNascimento>2002-09-21</dataNascimento>
+    <telefones>
+      <telefone>3276-6578</telefone>
+      <telefone>97898-1390</telefone>
+    </telefones>
+  </pessoa>
+  <pessoa>
+    <nome>Carlos Alfredo</nome>
+    <email>calfredo@uol.com</email>
+    <dataNascimento>1987-03-07</dataNascimento>
+    <telefones>
+      <telefone>3134-7900</telefone>
+      <telefone>99701-9718</telefone>
+    </telefones>
+  </pessoa>
+  <pessoa>
+    <nome>Maria Sônia</nome>
+    <email>marsonia@outlook.com</email>
+    <dataNascimento>1972-10-15</dataNascimento>
+    <telefones>
+      <telefone>3511-9712</telefone>
+      <telefone>98123-9866</telefone>
+    </telefones>
+  </pessoa>
+</contatos>
+

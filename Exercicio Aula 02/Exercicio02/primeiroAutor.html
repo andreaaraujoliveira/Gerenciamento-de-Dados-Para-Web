@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 04</title>
+</head>
+<body>
+  <h1>Exibir o Primeiro Autor (firstChild, nodeValue)</h1>
+  <div id="primeiro_autor"></div>
+
+  <script>
+    fetch('livros.xml')
+      .then(res => res.text())
+      .then(str => {
+        const xml = new DOMParser().parseFromString(str, 'text/xml');
+        const livro = xml.getElementsByTagName('livro')[0];
+        let filho = livro.firstChild;
+        while (filho && filho.nodeType !== 1) filho = filho.nextSibling;
+
+        let autorNode = filho.nextSibling;
+        while (autorNode && autorNode.nodeType !== 1) autorNode = autorNode.nextSibling;
+
+        const autorNome = autorNode.firstChild.nodeValue;
+        document.getElementById('primeiro_autor').textContent = autorNome;
+      });
+  </script>
+</body>
+</html>

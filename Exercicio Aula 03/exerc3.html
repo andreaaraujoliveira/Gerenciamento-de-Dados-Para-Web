@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 03 - Iteração sobre Nós Filhos</title>
+</head>
+<body>
+  <h1>3 - Iteração sobre Nós Filhos</h1>
+
+  <p>Utilizando o Conteúdo do XML abaixo, este script acessa o nó raiz 
+  <code>&lt;biblioteca&gt;</code> e itera sobre seus nós filhos, exibindo apenas os que são elementos.</p>
+
+  <pre>
+&lt;biblioteca&gt; 
+  &lt;livro categoria="ficcao"&gt; 
+    &lt;titulo&gt;O Guia do Mochileiro das Galáxias&lt;/titulo&gt; 
+    &lt;autor&gt;Douglas Adams&lt;/autor&gt; 
+  &lt;/livro&gt; 
+  &lt;livro categoria="tecnico"&gt; 
+    &lt;titulo&gt;Introdução ao XML&lt;/titulo&gt; 
+    &lt;autor&gt;Professor Exemplo&lt;/autor&gt; 
+  &lt;/livro&gt; 
+&lt;/biblioteca&gt;
+  </pre>
+
+  <h3>Resultado no Console:</h3>
+  <p>Abra o console (F12 &gt; aba Console) para ver o resultado.</p>
+
+ <p>"Elemento filho: livro, categoria: ficcao"</p>
+<p>"Elemento filho: livro, categoria: tecnico"</p> 
+    
+
+
+  <script>
+    const xmlString = `
+      <biblioteca>
+        <livro categoria="ficcao">
+          <titulo>O Guia do Mochileiro das Galáxias</titulo>
+          <autor>Douglas Adams</autor>
+        </livro>
+        <livro categoria="tecnico">
+          <titulo>Introdução ao XML</titulo>
+          <autor>Professor Exemplo</autor>
+        </livro>
+      </biblioteca>
+    `;
+
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+    // Acessar o nó raiz <biblioteca>
+    const biblioteca = xmlDoc.getElementsByTagName("biblioteca")[0];
+
+    // Iterar sobre os childNodes do nó raiz
+    for (let i = 0; i < biblioteca.childNodes.length; i++) {
+      const node = biblioteca.childNodes[i];
+
+      if (node.nodeType === 1) { // Verifica se é um Element Node
+        const categoria = node.getAttribute("categoria");
+        console.log(`Elemento filho: ${node.nodeName}, categoria: ${categoria}`);
+      }
+    }
+  </script>
+</body>
+</html>

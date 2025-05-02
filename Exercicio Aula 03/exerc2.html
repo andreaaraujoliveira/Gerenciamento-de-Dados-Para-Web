@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 02 - Acesso a Elementos</title>
+</head>
+<body>
+  <h1>2 - Acesso a Elementos e Conteúdo</h1>
+
+  <p>Utilizando JavaScript e DOMParser, crie um script que parseie o 
+  XML abaixo (representado como uma string):</p>
+
+  <pre>
+&lt;biblioteca&gt; 
+  &lt;livro categoria="ficcao"&gt; 
+    &lt;titulo&gt;O Guia do Mochileiro das Galáxias&lt;/titulo&gt; 
+    &lt;autor&gt;Douglas Adams&lt;/autor&gt; 
+  &lt;/livro&gt; 
+  &lt;livro categoria="tecnico"&gt; 
+    &lt;titulo&gt;Introdução ao XML&lt;/titulo&gt; 
+    &lt;autor&gt;Professor Exemplo&lt;/autor&gt; 
+  &lt;/livro&gt; 
+&lt;/biblioteca&gt;
+  </pre>
+
+  <p>● Acesse e exiba no console o nodeValue (o texto) do elemento <code>&lt;titulo&gt;</code> do segundo livro.</p>
+
+  <h3>Resposta</h3>
+
+  <p>Observação: Ao abrir o console no navegador, basta pressionar F12 e ir até a aba "Console" para ver o resultado</p>
+  <p>"Título do segundo livro: Introdução ao XML"</p>
+
+  <script>
+    const xmlString = `
+      <biblioteca>
+        <livro categoria="ficcao">
+          <titulo>O Guia do Mochileiro das Galáxias</titulo>
+          <autor>Douglas Adams</autor>
+        </livro>
+        <livro categoria="tecnico">
+          <titulo>Introdução ao XML</titulo>
+          <autor>Professor Exemplo</autor>
+        </livro>
+      </biblioteca>
+    `;
+
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+    const livros = xmlDoc.getElementsByTagName("livro");
+    const segundoTitulo = livros[1].getElementsByTagName("titulo")[0].textContent;
+
+    console.log("Título do segundo livro:", segundoTitulo);
+  </script>
+</body>
+</html>

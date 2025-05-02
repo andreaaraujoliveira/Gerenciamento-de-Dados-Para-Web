@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 03</title>
+</head>
+<body>
+  <h1>Exibir Informações de um Livro Específico (getAttribute), Informações do Primeiro Livro:</h1>
+  <div id="livro_especifico"></div>
+
+  <script>
+    fetch('livros.xml')
+      .then(response => response.text())
+      .then(str => {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(str, 'text/xml');
+
+        // Acessar o primeiro elemento <livro>
+        const livro = xml.getElementsByTagName('livro')[0];
+
+        // Obter o ID com getAttribute()
+        const id = livro.getAttribute('id');
+
+        // Acessar <titulo>, <autor> e <ano>
+        const titulo = livro.getElementsByTagName('titulo')[0].textContent;
+        const autor = livro.getElementsByTagName('autor')[0].textContent;
+        const ano = livro.getElementsByTagName('ano')[0].textContent;
+
+        // Exibir as informações
+        const div = document.getElementById('livro_especifico');
+        div.innerHTML = `
+          <p><strong>ID:</strong> ${id}</p>
+          <p><strong>Título:</strong> ${titulo}</p>
+          <p><strong>Autor:</strong> ${autor}</p>
+          <p><strong>Ano:</strong> ${ano}</p>
+        `;
+      });
+  </script>
+</body>
+</html>
