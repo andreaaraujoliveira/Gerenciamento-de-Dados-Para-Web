@@ -1,0 +1,50 @@
+1 - Compreensão da Estrutura DOM: 
+Dado o seguinte trecho XML: 
+XML 
+Unset 
+<biblioteca> 
+<livro categoria="ficcao"> 
+<titulo>O Guia do Mochileiro das Galáxias</titulo> 
+<autor>Douglas Adams</autor> 
+</livro> 
+<livro categoria="tecnico"> 
+<titulo>Introdução ao XML</titulo> 
+<autor>Professor Exemplo</autor> 
+</livro> 
+</biblioteca> 
+● Desenhe a árvore de nós (node-tree) correspondente a este XML, identificando o nó raiz, os nós de elemento, os nós de atributo e os nós de texto. Indique as relações de pai, filho e irmão entre alguns dos nós. 
+2 - Acesso a Elementos e Conteúdo: 
+● Utilizando JavaScript e DOMParser, crie um script que parseie o XML do Exercício 1 (representado como uma string). 
+● Acesse e exiba no console o nodeValue (o texto) do elemento <titulo> do segundo livro. 
+3 - Iteração sobre Nós Filhos: 
+● Usando o mesmo XML do Exercício 1 e o script JavaScript: 
+● Acesse o nó raiz (<biblioteca>). 
+● Itere sobre os childNodes do nó raiz. 
+● Para cada nó filho que seja um nó de elemento (nodeType == 1), imprima seu nodeName.
+4 - Alterando o Valor de um Nó de Texto: 
+○ Considere o seguinte XML: 
+XML 
+Unset 
+<catalogo> 
+<produto id="A45"> 
+<nome>Caneta Azul</nome> 
+<preco>2.50</preco> 
+<estoque>150</estoque> 
+</produto> 
+</catalogo> 
+○ Escreva um script JavaScript que: 
+■ Parseie a string XML acima para criar um xmlDoc. 
+■ Encontre o elemento <preco> dentro do <produto> com 
+id="A45". 
+■ Altere o valor do nó de texto (o nodeValue do firstChild) do elemento <preco> para 3.00. [source: 32] 
+■ Acesse e exiba no console o novo valor do nó de texto do elemento <preco> para confirmar a alteração. 
+5 - Adicionando um Novo Atributo a um Elemento: 
+○ Utilizando o mesmo XML do Exercício 4: 
+○ Escreva um script JavaScript que: 
+■ Parseie a string XML. 
+■ Encontre o elemento <produto> com id="A45". 
+■ Adicione um novo atributo chamado moeda com o valor BRL a este elemento <produto>. (Nota: Embora o PDF não mostre 
+explicitamente o método setAttribute, esta é a função padrão do DOM para esta tarefa, alinhada com a capacidade geral de modificar o XML mencionada. 
+■ Acesse e exiba no console o valor do novo atributo moeda do 
+elemento <produto> para confirmar que foi adicionado. Você pode 
+usar o método getAttribute('moeda') para verificar.

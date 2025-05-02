@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 04 - Alterando o Valor de um Nó de Texto</title>
+</head>
+<body>
+  <h1>4 - Alterando o Valor de um Nó de Texto</h1>
+
+  <p>Considere o seguinte XML:</p>
+  <pre>
+&lt;catalogo&gt; 
+  &lt;produto id="A45"&gt; 
+    &lt;nome&gt;Caneta Azul&lt;/nome&gt; 
+    &lt;preco&gt;2.50&lt;/preco&gt; 
+    &lt;estoque&gt;150&lt;/estoque&gt; 
+  &lt;/produto&gt; 
+&lt;/catalogo&gt;
+  </pre>
+
+  <p>Escreva um script JavaScript que:</p>
+  <ul>
+    <li>Parseie a string XML acima para criar um <code>xmlDoc</code>.</li>
+    <li>Encontre o elemento <code>&lt;preco&gt;</code> dentro do <code>&lt;produto&gt;</code> com id="A45".</li>
+    <li>Altere o valor do nó de texto (<code>nodeValue</code> do <code>firstChild</code>) do elemento <code>&lt;preco&gt;</code> para <strong>3.00</strong>.</li>
+    <li>Acesse e exiba no console o novo valor para confirmar a alteração.</li>
+  </ul>
+
+  <h3>Resultado no Console:</h3>
+  <p>Abra o console (F12 → aba Console) para ver o novo valor do preço.</p>
+<p>"Novo valor do preço: 3.00"</p>
+  <script>
+    const xmlString = `
+      <catalogo> 
+        <produto id="A45"> 
+          <nome>Caneta Azul</nome> 
+          <preco>2.50</preco> 
+          <estoque>150</estoque> 
+        </produto> 
+      </catalogo>
+    `;
+
+    // Parsear XML
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+    // Encontrar o <produto id="A45">
+    const produto = xmlDoc.querySelector('produto[id="A45"]');
+
+    // Encontrar o <preco> dentro do produto
+    const precoElement = produto.getElementsByTagName("preco")[0];
+
+    // Alterar o valor do nó de texto para 3.00
+    precoElement.firstChild.nodeValue = "3.00";
+
+    // Exibir novo valor no console
+    console.log("Novo valor do preço:", precoElement.firstChild.nodeValue);
+  </script>
+</body>
+</html>
